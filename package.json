@@ -19,5 +19,9 @@
   "bugs": {
     "url": "https://github.com/r72cccp/three-and-physics/issues"
   },
-  "homepage": "https://github.com/r72cccp/three-and-physics#readme"
+  "homepage": "https://github.com/r72cccp/three-and-physics#readme",
+  "devDependencies": {
+    "typescript": "^4.5.4",
+    "webpack": "^5.66.0"
+  }
 }
