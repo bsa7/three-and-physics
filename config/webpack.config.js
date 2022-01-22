@@ -1,29 +1,34 @@
 const aliasConfig = require('./alias')
-const path = require('path')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const paths = require('./paths')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   entry: {
-    main: path.resolve(__dirname, '../src/index.ts')
+    main: [paths.src + '/index.ts'],
   },
   module: {
     rules: [
-      {
-        test: /\.tsx?$/,
-        use: 'ts-loader',
-        exclude: /node_modules/,
-      },
+      // JavaScript: Use Babel to transpile JavaScript files
+      { test: /\.tsx?$/, use: 'ts-loader', exclude: /node_modules/ },
+
+      // Images: Copy image files to build folder
+      { test: /\.(?:ico|gif|png|jpg|jpeg)$/i, type: 'asset/resource' },
+
+      // Fonts and SVGs: Inline files
+      { test: /\.(woff(2)?|eot|ttf|otf|svg|)$/, type: 'asset/inline' },
     ],
   },
   plugins: [
+    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, '../src/index.template.html'),
+      template: paths.src + '/index.template.html',
       filename: 'index.html',
     }),
   ],
   output: {
     filename: '[name].bundle.js',
-    path: path.resolve(__dirname, '../dist'),
+    path: paths.dist,
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],

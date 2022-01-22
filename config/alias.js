@@ -1,11 +1,11 @@
-const path = require('path')
+const paths = require('./paths')
 
 module.exports = {
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, '../src/'),
-      '@constants': path.resolve(__dirname, '../src/constants/'),
-      '@types': path.resolve(__dirname, '../src/types/'),
+      '@': paths.src,
+      '@constants': paths.src + '/constants/',
+      '@types': paths.src + '/types/',
     },
   },
 }
