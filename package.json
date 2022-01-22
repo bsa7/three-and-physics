@@ -4,7 +4,8 @@
   "description": "This repo is attempt to realize three 3d with physics.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "serve": "node test/server.js",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -21,7 +22,14 @@
   },
   "homepage": "https://github.com/r72cccp/three-and-physics#readme",
   "devDependencies": {
+    "express": "^4.17.2",
+    "jest": "^27.4.7",
+    "jest-cli": "^27.4.7",
+    "jest-puppeteer": "^6.0.3",
+    "puppeteer": "^13.0.1",
+    "ts-loader": "9.2.6",
     "typescript": "^4.5.4",
-    "webpack": "^5.66.0"
+    "webpack": "^5.66.0",
+    "webpack-dev-middleware": "^5.3.0"
   }
 }
