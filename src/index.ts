@@ -1,7 +1,7 @@
 const component = (): HTMLElement => {
   const element: HTMLElement = document.createElement('div')
 
-  element.innerHTML = ['H11ello', 'webpack'].join(', ')
+  element.innerHTML = ['Hello', 'webpack'].join(', ')
 
   return element
 }
